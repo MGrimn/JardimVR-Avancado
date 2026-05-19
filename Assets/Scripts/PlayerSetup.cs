@@ -97,6 +97,14 @@ public class PlayerSetup : MonoBehaviour
         Camera cam = GetComponentInChildren<Camera>();
         if (cam != null)
             movement.cameraTransform = cam.transform;
+
+        // Adiciona ou configura o PlayerInteraction
+        PlayerInteraction interaction = GetComponent<PlayerInteraction>();
+        if (interaction == null)
+            interaction = gameObject.AddComponent<PlayerInteraction>();
+            
+        if (cam != null)
+            interaction.cameraTransform = cam.transform;
     }
 
     private void PositionPlayer()
